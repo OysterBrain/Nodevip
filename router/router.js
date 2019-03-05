@@ -24,7 +24,7 @@ module.exports = function(app){
     app.get('/repertoire/Info/:nom',VipController.getInfoStars);
 
  // albums
-   app.get('/album', AlbumController.ListerAlbum);
+   app.get('/album', AlbumController.getAllPhoto);
 
  //Article
     app.get('/articles', ArticleController.getNomVips);

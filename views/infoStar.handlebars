@@ -1,0 +1,31 @@
+
+<p>Cliquez sur une lettre :
+    {{#each lettres}}
+        <a href="/repertoire/{{this.lettre}}">{{this.lettre}}</a>
+    {{/each}}
+</p>
+
+<a href=""><img   src="/images/vip/{{photoStar.0.photo}}" width="100" height="125" ></a>
+<div id="infoStar">
+
+    <p><b>Nom :</b>{{infoDeLaStar.prenom}} {{infoDeLaStar.nom}}</p>
+    <p><b>Date de naissance : </b>{{formatDate infoDeLaStar.naissance 'LL' }}</p>
+    <p><b>Nationalité :</b> {{infoDeLaStar.nationalite}}</p>
+    <p><b>Profession :</b> A faire ...</p>
+    <p><b>Mariage(s): </b>
+        <a href="#">Stéphane Sednaoui
+            <span><img   src="/images/vip/sednaoui.jpg" width="50" height="55" >Stéphane Sednaoui</span>
+        </a>
+    </p>
+    <p><b>Liaison(s): </b> ...</p>
+    <p><b>Qui suis-je ?: </b>{{infoDeLaStar.texte}}</p>
+    {{#each photoStar}}
+        {{#ifCond  @index '==' "0" }}
+
+        {{else}}
+            <a href=""  title="titre"><img   src="/images/vip/{{this.photo}}" width="100" height="125" ></a>
+
+        {{/ifCond}}
+
+    {{/each}}
+</div>

@@ -97,12 +97,12 @@ module.exports.getArticleStar  = function(id,callback) {
 };
 
 
-module.exports.getAllPhotos = function(callback) {
+module.exports.getAllPhoto = function(callback) {
     db.getConnection(function(err, connexion) {
         if (!err) {
 
             let sql = "SELECT VIP_NOM AS nom , VIP_PRENOM as prenom , p.PHOTO_ADRESSE as photo" +
-                " FROM vip v JOIN photo p ON v.VIP_NUMERO=p.VIP_NUMERO ";
+                " FROM vip v JOIN photo p ON v.VIP_NUMERO=p.VIP_NUMERO WHERE p.PHOTO_NUMERO = 1 ";
             //console.log(sql);
             connexion.query(sql,callback);
             connexion.release();
