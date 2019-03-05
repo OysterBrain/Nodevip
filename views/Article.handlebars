@@ -1,0 +1,32 @@
+
+
+
+<div id="article">
+    <h2>Article</h2>
+    {{#ifCond  ArticleStar '==' null  }}
+        <p>Choisissez un vip pour voir les articles le concernant</p>
+    {{else}}
+        {{#ifCond ArticleStar '==' ""}}
+            <p>Il n'y a pas d'article concernant cette star</p>
+        {{else}}
+            <p id="articleResume">{{ArticleStar.0.article}}</p>
+            <div id="infoArticle">
+                <p id="articleDate">[Ajouté le {{formatDate ArticleStar.0.date 'LL'}}]</p><p id="articleFicheLien"><a href="/repertoire/Info/:nom">voir sa fiche</a></p></div>
+        {{/ifCond}}
+
+    {{/ifCond}}
+</div>
+
+
+
+<div id="menuVips">
+    <div id="logoVip">
+        <img src="/images/vips.png">
+    </div>
+
+    <ul id="listVips">
+    {{#each Vips}}
+       <li><a href="/articles/{{this.id}}">{{this.prenom}} {{this.nom}}</a></li>
+    {{/each}}
+    </ul>
+</div>

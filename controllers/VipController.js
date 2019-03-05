@@ -1,6 +1,8 @@
 
 
 
+let model = require("../models/vip.js");
+let async = require("async");
 // ///////////////////////// R E P E R T O I R E    D E S     S T A R S
 
 module.exports.Repertoire = 	function(request, response){
@@ -8,3 +10,75 @@ module.exports.Repertoire = 	function(request, response){
 
       response.render('repertoireVips', response);
   } ;
+
+
+module.exports.premiereLettre = 	function(request, response){
+    response.title = 'Répertoire';
+    model.premiereLettre(function(err, result){
+        if (err) {
+            console.log(err);
+            return;
+        }
+        response.lettres = result;
+
+
+
+        response.render('repertoireVips', response);
+    } );
+}
+
+module.exports.getListStars = 	function(request, response){
+    response.title = 'Répertoire';
+    let lettre = request.params.lettre;
+    async.parallel([
+        function (callback){
+            model.premiereLettre(function (err,result){callback(null,result)} );
+            },
+        function (callback){
+            model.getStars(lettre,(function(errE,resE){callback(null,resE)}));
+        },
+    ],
+    function (err,result){
+        if(err){
+            console.log(err);
+            return;
+        }
+        response.lettres = result[0];
+        response.infoStars = result[1];
+        response.render('repertoireVips',response);
+    }
+    );
+}
+
+
+
+
+module.exports.getInfoStars = 	function(request, response){
+    response.title = 'Répertoire Info de la star';
+    let nom = request.params.nom;
+    async.parallel([
+            function (callback){
+                model.premiereLettre(function (err,result){callback(null,result)} );
+            },
+            function (callback){
+                model.getInfoStars(nom,(function(errE,resE){callback(null,resE)}));
+            },
+            function (callback){
+                model.getPhotoStar(nom,(function(errEE,resEE){callback(null,resEE)}));
+            },
+        ],
+        function (err,result){
+            if(err){
+                console.log(err);
+                return;
+            }
+            response.lettres = result[0];
+            response.infoDeLaStar = result[1][0];
+            response.photoStar = result[2];
+
+            response.render('infoStar',response);
+        }
+    );
+}
+
+
