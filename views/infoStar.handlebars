@@ -67,7 +67,11 @@
 
 {{#if infoMariage}}
     {{#each infoMariage}}
-    <p><b>Mariage(s): </b> {{this.nom_conjoint}}
+    <p><b>Mariage(s): </b>
+        <a href="#">{{this.nom_conjoint}} {{this.prenom_conjoint}}
+            <span><img src="/images/vip/{{this.photo}}" width="50" height="55">{{this.nom_conjoint}} {{this.prenom_conjoint}} {{this.texte}} </span>
+        </a>
+
         {{#if this.mariage_fin}}
             ({{formatDate this.mariage_date 'MMMM YYYY'}} --> {{formatDate this.mariage_fin 'MMMM YYYY'}}) <b>lieu :</b> {{this.mariage_lieu}}
         {{else}}
@@ -78,11 +82,7 @@
     {{/each}}
 {{/if}}
 
-        <a href="#">Stéphane Sednaoui
-            <span><img   src="/images/vip/sednaoui.jpg" width="50" height="55" >Stéphane Sednaoui</span>
-        </a>
-    </p>
-    <p><b>Liaison(s): </b> ...</p>
+        <p><b>Liaison(s): </b> ...</p>
     <p><b>Qui suis-je ?: </b>{{infoDeLaStar.texte}}</p>
     {{#each photoStar}}
         {{#ifCond  @index '==' "0" }}

@@ -171,9 +171,9 @@ module.exports.getMariage = function(id,callback) {
     db.getConnection(function(err, connexion) {
         if (!err) {
 
-            let sql = "SELECT v2.VIP_NOM as nom_conjoint, DATE_EVENEMENT as mariage_date, MARIAGE_LIEU mariage_lieu, MARIAGE_FIN as mariage_fin, MARIAGE_MOTIFFIN as mariage_motif_fin FROM  vip as v1  JOIN `mariage` as m ON v1.VIP_NUMERO = m.VIP_NUMERO  LEFT OUTER JOIN vip as v2  ON v2.VIP_NUMERO = m.VIP_VIP_NUMERO WHERE v1.VIP_NUMERO = '"+id+"' \n" +
+            let sql = "SELECT v2.VIP_TEXTE as texte, p.PHOTO_ADRESSE as photo, v2.VIP_NOM as nom_conjoint, v2.VIP_PRENOM as prenom_conjoint, v2.VIP_NUMERO as id_conjoint, DATE_EVENEMENT as mariage_date, MARIAGE_LIEU mariage_lieu, MARIAGE_FIN as mariage_fin, MARIAGE_MOTIFFIN as mariage_motif_fin FROM  vip as v1  JOIN `mariage` as m ON v1.VIP_NUMERO = m.VIP_NUMERO  LEFT OUTER JOIN vip as v2  ON v2.VIP_NUMERO = m.VIP_VIP_NUMERO JOIN photo as p ON v2.VIP_NUMERO = p.VIP_NUMERO WHERE p.PHOTO_NUMERO = '1' AND v1.VIP_NUMERO = '"+id+"' \n" +
                 "UNION\n" +
-                "SELECT v1.VIP_NOM as nom_conjoint, DATE_EVENEMENT as mariage_date, MARIAGE_LIEU mariage_lieu, MARIAGE_FIN as mariage_fin, MARIAGE_MOTIFFIN as mariage_motif_fin FROM  vip as v1  JOIN `mariage` as m ON v1.VIP_NUMERO = m.VIP_NUMERO  LEFT OUTER JOIN vip as v2  ON v2.VIP_NUMERO = m.VIP_VIP_NUMERO WHERE v2.VIP_NUMERO = '"+id+"'";
+                "SELECT v1.VIP_TEXTE as texte, p.PHOTO_ADRESSE as photo, v1.VIP_NOM as nom_conjoint, v1.VIP_PRENOM as prenom_conjoint, v2.VIP_NUMERO as id_conjoint, DATE_EVENEMENT as mariage_date, MARIAGE_LIEU mariage_lieu, MARIAGE_FIN as mariage_fin, MARIAGE_MOTIFFIN as mariage_motif_fin FROM  vip as v1  JOIN `mariage` as m ON v1.VIP_NUMERO = m.VIP_NUMERO  LEFT OUTER JOIN vip as v2  ON v2.VIP_NUMERO = m.VIP_VIP_NUMERO JOIN photo as p ON v1.VIP_NUMERO = p.VIP_NUMERO WHERE p.PHOTO_NUMERO = '1' AND v2.VIP_NUMERO = '"+id+"'";
             console.log(sql);
             connexion.query(sql,callback);
             connexion.release();

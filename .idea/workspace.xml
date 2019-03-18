@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff7e5ce5-c319-4d31-a5e9-4409546b6aae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Nodevip.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/VipController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/VipController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vip.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/vip.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/infoStar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/infoStar.handlebars" afterDir="false" />
     </list>
@@ -32,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/infoStar.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="71" column="91" lean-forward="true" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
+            <state relative-caret-position="374">
+              <caret line="70" column="66" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -59,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="173" column="322" selection-start-line="173" selection-start-column="322" selection-end-line="173" selection-end-column="322" />
+            <state relative-caret-position="242">
+              <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -86,8 +79,8 @@
         <option value="$PROJECT_DIR$/router/router.js" />
         <option value="$PROJECT_DIR$/views/repertoireVips.handlebars" />
         <option value="$PROJECT_DIR$/controllers/VipController.js" />
-        <option value="$PROJECT_DIR$/views/infoStar.handlebars" />
         <option value="$PROJECT_DIR$/models/vip.js" />
+        <option value="$PROJECT_DIR$/views/infoStar.handlebars" />
       </list>
     </option>
   </component>
@@ -135,12 +128,12 @@
       <workItem from="1552825787336" duration="697000" />
       <workItem from="1552828445681" duration="23000" />
       <workItem from="1552900323236" duration="87000" />
-      <workItem from="1552913368440" duration="3929000" />
+      <workItem from="1552913368440" duration="5936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10490000" />
+    <option name="totallyTimeSpent" value="12497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -183,13 +176,6 @@
         <state relative-caret-position="-1373" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/repertoireVips.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="65" lean-forward="true" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -197,10 +183,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/infoStar.handlebars">
+    <entry file="file://$PROJECT_DIR$/models/vip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="71" column="91" lean-forward="true" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
+        <state relative-caret-position="242">
+          <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -211,10 +197,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/vip.js">
+    <entry file="file://$PROJECT_DIR$/views/repertoireVips.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="173" column="322" selection-start-line="173" selection-start-column="322" selection-end-line="173" selection-end-column="322" />
+        <state relative-caret-position="68">
+          <caret line="4" column="65" lean-forward="true" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/infoStar.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="70" column="66" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
         </state>
       </provider>
     </entry>
