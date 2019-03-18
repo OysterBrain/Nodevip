@@ -4,7 +4,7 @@
 let model = require("../models/vip.js");
 
 
-//////////////////////// L I S T E R     A L B U M S
+//////////////////////// L I S T E R     A L B U M S////////////////////////
 
 module.exports.getAllPhoto = function(request, response){
    response.title = 'Album des stars';
@@ -14,11 +14,11 @@ module.exports.getAllPhoto = function(request, response){
             console.log(err);
             return;
         }
-        response.allPhotos = result[0];
+        response.allPhotos = result;
         console.log(result);
+        response.render('listerAlbum', response);
     } );
 
-    response.render('listerAlbum', response);
-  } ;
+}
 
 

@@ -1,8 +1,93 @@
 <h1> Album photo </h1>
 
-{{#each allPhotos}}
-    <div class="photoAlbum">
-        <a href="/repertoire/Info/{{this.nom}}"><img   src="/images/vip/{{this.photo}}" width="100" height="125" ></a>
-        <p><a href="/repertoire/Info/{{this.nom}}">{{this.prenom}} {{this.nom}}</a></p>
+<!--<script >-->
+    <!--function ajouteEvent(objet, typeEvent, nomFonction, typePropagation){-->
+        <!--if (objet.addEventListener){-->
+            <!--objet.addEventListener(typeEvent, nomFonction, typePropagation);-->
+        <!--}-->
+        <!--else if (objet.attachEvent) {-->
+            <!--objet.attachEvent('on'+typeEvent, nomFonction);-->
+        <!--}-->
+    <!--}-->
+
+    <!--function clickButtonSuivant(){-->
+
+        <!--var boutonSuivant = document.getElementById('btnSuivant');-->
+        <!--ajouteEvent(boutonSuivant,"click",recupPhoto,false);-->
+    <!--}-->
+
+    <!--function recupPhoto(){-->
+        <!--var tabPhoto = new Array();-->
+        <!--var tabPhotoActuel = new Array();-->
+        <!--var nbPhoto = 0;-->
+        <!--var photoTest = document.getElementById(0);-->
+
+
+        <!--while(photoTest!=null){-->
+            <!--nbPhoto++;-->
+            <!--photoTest=document.getElementById(nbPhoto);-->
+
+        <!--}-->
+
+
+
+       <!--// console.log(nbPhoto);-->
+        <!--for(i = 0 ; i< nbPhoto ;i++){-->
+            <!--tabPhoto[i]=document.getElementById(i);-->
+        <!--}-->
+
+        <!--tabPhotoActuel=tabPhoto;-->
+        <!--// for(i=0;i<nbPhoto;i++){-->
+        <!--//     console.log(tabPhoto[i]);-->
+        <!--//-->
+        <!--// }-->
+
+
+        <!--for(i=12 ;i<nbPhoto;i++){-->
+            <!--tabPhotoActuel[i].remove();-->
+        <!--}-->
+
+        <!--for(i=0;i<nbPhoto;i++){-->
+
+            <!--console.log(tabPhoto[i]);-->
+
+        <!--}-->
+
+    <!--}-->
+
+    <!--window.onload=function(){-->
+        <!--clickButtonSuivant();-->
+    <!--}-->
+
+<!--</script>-->
+
+
+<!--<script>-->
+
+    <!--$('#easyPaginate').easyPaginate({-->
+    <!--paginateElement: 'img',-->
+    <!--elementsPerPage: 3,-->
+    <!--effect: 'climb'-->
+<!--});-->
+<!--</script>-->
+
+
+<div id="photoStarSolo">
+
+</div>
+
+<div id="albumStars">
+
+    <div id="easyPaginate">
+
+        {{#each allPhotos}}
+
+            <a href=""><img class="photoAlbum" src="/images/vip/{{this.photo}}"></a>
+
+        {{/each}}
     </div>
-{{/each}}
+
+
+</div>
+
+

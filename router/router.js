@@ -25,6 +25,7 @@ module.exports = function(app){
 
  // albums
    app.get('/album', AlbumController.getAllPhoto);
+    app.get('/album/:id', AlbumController.getAllPhoto);
 
  //Article
     app.get('/articles', ArticleController.getNomVips);
