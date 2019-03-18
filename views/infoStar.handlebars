@@ -61,12 +61,23 @@
 {{#if infoActeur}}
         <p><b>Profession : </b>Acteur</p>
     {{#each infoActeur}}
-            <p> Joue {{this.role}} dans {{this.fiml_titre}} ({{formatDate this.film_date 'MMMM YYYY'}})</p>
+            <p> Joue {{this.role}} dans {{this.film_titre}} ({{formatDate this.film_date 'MMMM YYYY'}}) de {{this.realisateur_nom}} {{this.realisateur_prenom}}</p>
     {{/each}}
 {{/if}}
 
+{{#if infoMariage}}
+    {{#each infoMariage}}
+    <p><b>Mariage(s): </b> {{this.nom_conjoint}}
+        {{#if this.mariage_fin}}
+            ({{formatDate this.mariage_date 'MMMM YYYY'}} --> {{formatDate this.mariage_fin 'MMMM YYYY'}}) <b>lieu :</b> {{this.mariage_lieu}}
+        {{else}}
+            ({{formatDate this.mariage_date 'MMMM YYYY'}}) <b>lieu :</b> {{this.mariage_lieu}}
+        {{/if}}
+    </p>
 
-    <p><b>Mariage(s): </b>
+    {{/each}}
+{{/if}}
+
         <a href="#">Stéphane Sednaoui
             <span><img   src="/images/vip/sednaoui.jpg" width="50" height="55" >Stéphane Sednaoui</span>
         </a>

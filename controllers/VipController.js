@@ -93,6 +93,11 @@ module.exports.getInfoStars = 	function(request, response){
                     callback(null, result)
                 });
             },
+            function (callback) {
+                model.getMariage(id, function (err, result) {
+                    callback(null, result)
+                });
+            },
         ],
         function (err,result){
             if(err){
@@ -107,7 +112,9 @@ module.exports.getInfoStars = 	function(request, response){
             response.infoChanteur = result[5];
             response.infoRealisateur = result[6];
             response.infoActeur = result[7];
-            console.log(result[3]);
+            response.infoMariage = result[8];
+
+            console.log(result[8]);
             //console.log(result[2]);
 
             response.render('infoStar',response);
