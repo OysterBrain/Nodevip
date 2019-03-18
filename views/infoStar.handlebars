@@ -11,7 +11,61 @@
     <p><b>Nom :</b>{{infoDeLaStar.prenom}} {{infoDeLaStar.nom}}</p>
     <p><b>Date de naissance : </b>{{formatDate infoDeLaStar.naissance 'LL' }}</p>
     <p><b>Nationalité :</b> {{infoDeLaStar.nationalite}}</p>
-    <p><b>Profession :</b> A faire ...</p>
+
+{{#if infoMannequin.0.nom}}
+
+        <p><b>Profession : </b>Manequin</p>
+
+        <p><b>Principal(aux) défilé(s)</b> : {{infoMannequin.0.defile_lieu}} ({{formatDate infoMannequin.0.defile_date 'MMMM YYYY'}}) de {{infoMannequin.0.couturier_nom}}</p>
+
+{{/if}}
+
+{{#if  infoCouturier }}
+
+        <p><b>Profession : </b>Couturier</p>
+
+        <p><b>Principal(aux) défilé(s)</b> : {{infoCouturier.0.defile_lieu}} ({{formatDate infoCouturier.0.defile_date 'MMMM YYYY'}})</p>
+
+{{/if}}
+
+{{#if infoChanteur}}
+
+        <p><b>Profession : </b>Chanteur(se)</p>
+
+        <p><b>Spécialité : </b>{{infoChanteur.0.chanteur_specialite}}</p>
+
+
+        <p><b>Principal(aux) album(s)</b> :
+            {{#each infoChanteur}}
+                {{this.album_titre}}
+            {{/each}}
+        </p>
+    <p><b>Maison de disque : </b>{{infoChanteur.0.maisondisque_nom}}
+
+{{/if}}
+
+{{#if  infoRealisateur }}
+
+        <p><b>Profession : </b>Réalisateur</p>
+
+    {{#if infoRealisateur.0.film_titre}}
+            <p><b>Principal(aux) film(s)</b> :
+                {{#each infoRealisateur}}
+                    {{this.film_titre}} {{this.fim_date}}
+                {{/each}}</p>
+    {{/if}}
+
+
+{{/if}}
+
+{{#if infoActeur}}
+        <p><b>Profession : </b>Acteur</p>
+    {{#each infoActeur}}
+            <p> Joue {{this.role}} dans {{this.fiml_titre}} ({{formatDate this.film_date 'MMMM YYYY'}})</p>
+    {{/each}}
+{{/if}}
+
+
     <p><b>Mariage(s): </b>
         <a href="#">Stéphane Sednaoui
             <span><img   src="/images/vip/sednaoui.jpg" width="50" height="55" >Stéphane Sednaoui</span>

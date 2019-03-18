@@ -21,7 +21,7 @@ module.exports = function(app){
 // VIP
     app.get('/repertoire', VipController.premiereLettre);
     app.get('/repertoire/:lettre', VipController.getListStars);
-    app.get('/repertoire/Info/:nom',VipController.getInfoStars);
+    app.get('/repertoire/Info/:id',VipController.getInfoStars);
 
  // albums
    app.get('/album', AlbumController.getAllPhoto);
