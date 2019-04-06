@@ -114,7 +114,7 @@ module.exports.getInfoStars = 	function(request, response){
             response.infoActeur = result[7];
             response.infoMariage = result[8];
 
-            console.log(result[8]);
+            console.log(result[7]);
             //console.log(result[2]);
 
             response.render('infoStar',response);

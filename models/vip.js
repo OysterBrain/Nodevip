@@ -113,7 +113,7 @@ module.exports.getAllPhoto = function(callback) {
 module.exports.getMannequin = function(id,callback){
     db.getConnection(function (err,connexion) {
         if(!err){
-            let sql = "SELECT v1.VIP_NOM as nom, DEFILE_LIEU as defile_lieu, DEFILE_DATE as defile_date, v2.VIP_NOM as couturier_nom FROM `vip` as v1 LEFT OUTER JOIN mannequin as m ON v1.VIP_NUMERO = m.VIP_NUMERO LEFT OUTER JOIN defiledans as d ON m.VIP_NUMERO = d.VIP_NUMERO LEFT OUTER JOIN defile ON  defile.DEFILE_NUMERO = d.DEFILE_NUMERO LEFT OUTER JOIN couturier as c ON defile.VIP_NUMERO = c.VIP_NUMERO LEFT OUTER JOIN  vip as v2 ON c.VIP_NUMERO = v2.VIP_NUMERO WHERE m.VIP_NUMERO ='"+id+"';";
+            let sql = "SELECT v2.VIP_TEXTE as texte, p.PHOTO_ADRESSE as photo, v1.VIP_NOM as nom, DEFILE_LIEU as defile_lieu, DEFILE_DATE as defile_date, v2.VIP_NOM as couturier_nom FROM `vip` as v1 LEFT OUTER JOIN mannequin as m ON v1.VIP_NUMERO = m.VIP_NUMERO LEFT OUTER JOIN defiledans as d ON m.VIP_NUMERO = d.VIP_NUMERO LEFT OUTER JOIN defile ON  defile.DEFILE_NUMERO = d.DEFILE_NUMERO LEFT OUTER JOIN couturier as c ON defile.VIP_NUMERO = c.VIP_NUMERO LEFT OUTER JOIN  vip as v2 ON c.VIP_NUMERO = v2.VIP_NUMERO JOIN photo as p ON v2.VIP_NUMERO = p.VIP_NUMERO WHERE p.PHOTO_NUMERO = '1' AND m.VIP_NUMERO ='"+id+"';";
             //console.log(sql);
             connexion.query(sql, callback);
             connexion.release();
@@ -158,7 +158,7 @@ module.exports.getRealisateur = function(id,callback){
 module.exports.getActeur = function(id,callback){
     db.getConnection(function (err,connexion) {
         if(!err){
-            let sql ="SELECT v2.VIP_NOM as realisateur_nom, v2.VIP_PRENOM as realisateur_prenom, ACTEUR_DATEDEBUT as date_debut, ROLE_NOM as role, FILM_TITRE as film_titre, FILM_DATEREALISATION as film_date FROM vip as v JOIN acteur as a ON v.VIP_NUMERO=a.VIP_NUMERO LEFT JOIN joue as j ON a.VIP_NUMERO=j.VIP_NUMERO JOIN film as f ON j.FILM_NUMERO=f.FILM_NUMERO LeFT OUTER JOIN realisateur as r ON f.VIP_NUMERO = r.VIP_NUMERO LEFT OUTER JOIN vip as v2 ON r.VIP_NUMERO = v2.VIP_NUMERO WHERE a.VIP_NUMERO = '"+id+"'";
+            let sql ="SELECT v2.VIP_TEXTE as texte ,p.PHOTO_ADRESSE as photo, v2.VIP_NOM as realisateur_nom, v2.VIP_PRENOM as realisateur_prenom, ACTEUR_DATEDEBUT as date_debut, ROLE_NOM as role, FILM_TITRE as film_titre, FILM_DATEREALISATION as film_date FROM vip as v JOIN acteur as a ON v.VIP_NUMERO=a.VIP_NUMERO LEFT JOIN joue as j ON a.VIP_NUMERO=j.VIP_NUMERO JOIN film as f ON j.FILM_NUMERO=f.FILM_NUMERO LeFT OUTER JOIN realisateur as r ON f.VIP_NUMERO = r.VIP_NUMERO LEFT OUTER JOIN vip as v2 ON r.VIP_NUMERO = v2.VIP_NUMERO JOIN photo as p ON v2.VIP_NUMERO = p.VIP_NUMERO WHERE p.PHOTO_NUMERO = '1'AND a.VIP_NUMERO = '"+id+"'";
             console.log(sql);
             connexion.query(sql, callback);
             connexion.release();

@@ -63,6 +63,11 @@ function hbsHelpers(handlebars) {
                 }); // fin moment
                 return moment(date).format(format);
             },
+            formatTexte: function (texte){
+                var string = texte.substr(1,257);
+                string += ' ...';
+                return string;
+            },
             /* Exemple d'utilisation :
             {{#ifCond  this.vil_num '<' 10}}
                plus petit
@@ -97,3 +102,4 @@ function hbsHelpers(handlebars) {
 }
 
 module.exports = hbsHelpers;
+

@@ -8,7 +8,7 @@
 <a href=""><img   src="/images/vip/{{photoStar.0.photo}}" width="100" height="125" ></a>
 <div id="infoStar">
 
-    <p><b>Nom :</b>{{infoDeLaStar.prenom}} {{infoDeLaStar.nom}}</p>
+    <p><b>Nom : </b>{{infoDeLaStar.prenom}} {{infoDeLaStar.nom}}</p>
     <p><b>Date de naissance : </b>{{formatDate infoDeLaStar.naissance 'LL' }}</p>
     <p><b>Nationalité :</b> {{infoDeLaStar.nationalite}}</p>
 
@@ -16,7 +16,11 @@
 
         <p><b>Profession : </b>Manequin</p>
 
-        <p><b>Principal(aux) défilé(s)</b> : {{infoMannequin.0.defile_lieu}} ({{formatDate infoMannequin.0.defile_date 'MMMM YYYY'}}) de {{infoMannequin.0.couturier_nom}}</p>
+        <p><b>Principal(aux) défilé(s)</b> : {{infoMannequin.0.defile_lieu}} ({{formatDate infoMannequin.0.defile_date 'MMMM YYYY'}}) de
+            <a href="#"> {{infoMannequin.0.couturier_nom}}
+                 <span style="line-height:25px;"><img src="/images/vip/{{infoMannequin.0.photo}}" width="50" height="55" style="float:left";>{{infoMannequin.0.couturier_nom}} {{formatTexte infoMannequin.0.texte}} </span>
+            </a>
+        </p>
 
 {{/if}}
 
@@ -61,7 +65,10 @@
 {{#if infoActeur}}
         <p><b>Profession : </b>Acteur</p>
     {{#each infoActeur}}
-            <p> Joue {{this.role}} dans {{this.film_titre}} ({{formatDate this.film_date 'MMMM YYYY'}}) de {{this.realisateur_nom}} {{this.realisateur_prenom}}</p>
+            <p> Joue {{this.role}} dans {{this.film_titre}} ({{formatDate this.film_date 'MMMM YYYY'}}) de <a href="#"> {{this.realisateur_nom}} {{this.realisateur_prenom}}
+                <span style="line-height:25px;"><img src="/images/vip/{{this.photo}}" width="50" height="55" style="float:left";>{{this.realisateur_nom}} {{this.realisateur_prenom}} {{formatTexte this.texte}} </span>
+            </a>
+            </p>
     {{/each}}
 {{/if}}
 
@@ -69,7 +76,8 @@
     {{#each infoMariage}}
     <p><b>Mariage(s): </b>
         <a href="#">{{this.nom_conjoint}} {{this.prenom_conjoint}}
-            <span><img src="/images/vip/{{this.photo}}" width="50" height="55">{{this.nom_conjoint}} {{this.prenom_conjoint}} {{this.texte}} </span>
+
+            <span style="line-height:25px;"><img src="/images/vip/{{this.photo}}" width="50" height="55" style="float:left";>{{this.nom_conjoint}} {{this.prenom_conjoint}} {{formatTexte this.texte}} </span>
         </a>
 
         {{#if this.mariage_fin}}
