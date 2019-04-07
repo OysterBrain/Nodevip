@@ -1,0 +1,26 @@
+
+
+{{#if id}}
+    {{#auth id connexion.0.identifiant mdp connexion.0.mdp}}
+        Vous êtes connecté en tant qu'admin
+
+    {{else}}
+        <p><font color="red">Login ou mot de passe incorrect</font></p>
+
+        <form action="/connexion" method="post">
+            Identifiant : <input name ="identifiant" type="text">
+            Mot de Passe : <input name ="motdepasse" id="mdp" type="password">
+
+            <button type="submit" value="ok">Se connecter</button>
+        </form>
+    {{/auth}}
+{{else}}
+    <form action="/connexion" method="post">
+        Identifiant : <input name ="identifiant" type="text">
+        Mot de Passe : <input name ="motdepasse" id="mdp" type="password">
+
+        <button type="submit" value="ok">Se connecter</button>
+    </form>
+{{/if}}
+
+

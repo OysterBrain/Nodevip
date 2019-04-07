@@ -2,6 +2,7 @@
 
 
 let moment = require('moment');
+let crypto = require('crypto');
 
 function hbsHelpers(handlebars) {
     return handlebars.create({
@@ -68,6 +69,19 @@ function hbsHelpers(handlebars) {
                 string += ' ...';
                 return string;
             },
+            encrypte: function(texte){
+                var txt = texte.toString();
+                var string = crypto.createHash("sha1").update(txt).digest('hex');
+                return string;
+            },
+            auth: function(idSaisie,id,mdpSaisie,mdp, options){
+                var txt = mdpSaisie.toString();
+                var string = crypto.createHash("sha1").update(txt).digest('hex');
+
+                var bonneId = idSaisie === id;
+                var bonMdp = string === mdp;
+                return (bonneId && bonMdp) ? options.fn(this) : options.inverse(this);
+            },
             /* Exemple d'utilisation :
             {{#ifCond  this.vil_num '<' 10}}
                plus petit
@@ -93,6 +107,8 @@ function hbsHelpers(handlebars) {
                         return (v1 && v2) ? options.fn(this) : options.inverse(this);
                     case '||':
                         return (v1 || v2) ? options.fn(this) : options.inverse(this);
+                    case 'equals':
+                        return (v1.equals(v2)) ? options.fn(this) : options.inverse(this);
                     default:
                         return options.inverse(this);
                 }

@@ -5,6 +5,7 @@ let VipController = require('./../controllers/VipController');
 let AlbumController = require('./../controllers/AlbumController');
 let TestController = require('./../controllers/TestController');
 let ArticleController = require('./../controllers/ArticleController');
+let ConnexionController = require('./../controllers/ConnexionController');
 
 
 
@@ -30,6 +31,10 @@ module.exports = function(app){
  //Article
     app.get('/articles', ArticleController.getNomVips);
     app.get('/articles/:id', ArticleController.getAllArticle);
+
+//Connexion
+    app.get('/connexion', ConnexionController.getConnexion);
+    app.post('/connexion', ConnexionController.getConnexion);
 
 // tout le reste
     app.get('*', HomeController.NotFound);

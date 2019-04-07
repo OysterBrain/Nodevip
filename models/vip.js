@@ -180,3 +180,15 @@ module.exports.getMariage = function(id,callback) {
         }
     });
 };
+
+module.exports.getConnexion = function(callback) {
+    db.getConnection(function(err, connexion) {
+        if (!err) {
+
+            let sql = "SELECT LOGIN as identifiant, PASSWD as mdp FROM `parametres`";
+            console.log(sql);
+            connexion.query(sql,callback);
+            connexion.release();
+        }
+    });
+};
